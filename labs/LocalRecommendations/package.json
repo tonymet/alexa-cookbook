@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@google/maps": "^0.4.3",
+    "alexa-sdk": "^1.0.12"
+  }
+}
