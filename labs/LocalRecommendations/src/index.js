@@ -1,6 +1,7 @@
 
 // 1. Text strings =====================================================================================================
 //    Modify these strings and messages to change the behavior of your Lambda function
+// test comment
 
 var languageStrings = {
     'en': {
@@ -20,7 +21,7 @@ var data = {
     "restaurants" : [
         { "name":"Zeke's Place",
             "address":"66 East Main Street", "phone": "978-283-0474",
-            "meals": "breakfast, lunch",
+            "meals": "breakfast, lunch, snack",
             "description": "A cozy and popular spot for breakfast.  Try the blueberry french toast!"
         },
         { "name":"Morning Glory Coffee Shop",
@@ -120,6 +121,13 @@ var handlers = {
         this.attributes['restaurant'] = restaurant.name;
 
         var say = 'For breakfast, try this, ' + restaurant.name + '. Would you like to hear more?';
+        this.emit(':ask', say);
+    },
+    'SnackIntent': function () {
+        var restaurant = randomArrayElement(getRestaurantsByMeal('snack'));
+        this.attributes['restaurant'] = restaurant.name;
+
+        var say = 'For a snack, try this, ' + restaurant.name + '. Would you like to hear more?';
         this.emit(':ask', say);
     },
 
